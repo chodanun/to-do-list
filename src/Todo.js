@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 export class Todo extends Component {
+	// static propTypes = {
+	//   buttonColor: React.PropTypes.string.isRequired,
+	// }
 	constructor(props) {
 	  super(props);
 	  this.state = {
@@ -43,6 +46,7 @@ export class Todo extends Component {
 			      	placeholder="Search for..."/>
 			      <span className="input-group-btn">
 			        <button 
+			        	style={{background: this.props.buttonColor,}}
 			        	className="btn btn-default" 
 			        	onClick = {this.submitList.bind(this)}
 			        	type="button">Go!

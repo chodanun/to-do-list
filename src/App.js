@@ -7,8 +7,16 @@ import {Todo} from './Todo'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Todo />
+      <div>
+        <div className="col-md-4">
+          <Todo buttonColor="red"/>
+        </div>
+        <div className="col-md-4">
+          <Todo buttonColor="green"/>
+        </div>
+        <div className="col-md-4">
+          <Todo buttonColor="blue"/>
+        </div>
       </div>
     );
   }

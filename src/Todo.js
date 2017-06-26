@@ -18,7 +18,8 @@ export class Todo extends Component {
 			inputText: e.target.value ,
 		})
 	}
-	submitList(e){
+	submitList(){
+		console.log("CLICK")
 		this.setState({
 			listItem: [...this.state.listItem,this.state.inputText],
 			inputText: '',

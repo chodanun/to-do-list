@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 export class ToAdd extends Component {
-
+	handleSubmit(event) {
+	   	this.props.addToList()
+	    event.preventDefault();
+	  }
 	render(){
 		return(
+			<form onSubmit={this.handleSubmit.bind(this)}>
 			<div className="input-group">
 		      <input 
 		      	type="text" 
@@ -20,6 +24,7 @@ export class ToAdd extends Component {
 		        </button>
 		      </span>
 		    </div>
+		    </form>
 		)
 	}
 }

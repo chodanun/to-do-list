@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import {ToAdd} from './ToAdd'
+import {Tasks} from './Tasks'
 export class Todo extends Component {
 	// static propTypes = {
 	//   buttonColor: React.PropTypes.string.isRequired,
@@ -37,31 +38,17 @@ export class Todo extends Component {
           		<div className="title">
           			<h1>To-do-list</h1>
           		</div>
-			    <div className="input-group">
-			      <input 
-			      	type="text" 
-			      	className="form-control" 
-			      	onChange = {this.handleOnchangeText.bind(this)}
-			      	value = {this.state.inputText}
-			      	placeholder="Search for..."/>
-			      <span className="input-group-btn">
-			        <button 
-			        	style={{background: this.props.buttonColor,}}
-			        	className="btn btn-default" 
-			        	onClick = {this.submitList.bind(this)}
-			        	type="button">Go!
-			        </button>
-			      </span>
-			    </div>
-			    <ul className="list-group">
-			    {
-			    	this.state.listItem.map( (val, index) =>{
-			    		return <div key = {index+val} onClick={this.deleteListItem.bind(this,index)}>
-			    					<li className="list-group-item" >{val}</li>
-			    				</div>
-			    	})
-			    }
-			    </ul>
+			    <ToAdd 
+			    	buttonColor={this.props.buttonColor}
+			    	onChangeText={this.handleOnchangeText.bind(this)} 
+			    	inputText={this.state.inputText}
+			    	addToList={this.submitList.bind(this)}
+			    />
+			    <Tasks
+			    	listItem = {this.state.listItem}
+			    	deleteListItem = { (index)=> this.deleteListItem(index)}
+			    />
+			    
 			  </div>
         </div>
     );

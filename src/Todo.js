@@ -17,6 +17,14 @@ export class Todo extends Component {
 	submitList(e){
 		this.setState({
 			listItem: [...this.state.listItem,this.state.inputText],
+			inputText: '',
+		})
+	}
+	deleteListItem(index){
+		const result = this.state.listItem
+		result.splice(index,1)
+		this.setState({
+			listItem: result,
 		})
 	}
   render() {
@@ -41,11 +49,15 @@ export class Todo extends Component {
 			        </button>
 			      </span>
 			    </div>
+			    <ul className="list-group">
 			    {
 			    	this.state.listItem.map( (val, index) =>{
-			    		return <h3 key={index+val} >{val}</h3>
+			    		return <div key = {index+val} onClick={this.deleteListItem.bind(this,index)}>
+			    					<li className="list-group-item" >{val}</li>
+			    				</div>
 			    	})
 			    }
+			    </ul>
 			  </div>
         </div>
     );
